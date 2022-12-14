@@ -25,6 +25,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+  click_text_field:
+    dependency: "direct dev"
+    description:
+      path: ".."
+      relative: true
+    source: path
+    version: "0.0.1"
   clock:
     dependency: transitive
     description:
@@ -186,3 +193,4 @@ packages:
     version: "2.1.4"
 sdks:
   dart: ">=2.19.0-374.1.beta <4.0.0"
+  flutter: ">=1.17.0"

@@ -2,9 +2,6 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
 
-const simpleTextStyle = TextStyle(
-  color: Colors.deepPurple,
-);
 const clickTextStyle = TextStyle(
   color: Colors.deepPurple,
 );
