@@ -48,8 +48,5 @@
 ```
 ### link
 1. source code: [https://github.com/shAdow-XJY/click_text_field](https://github.com/shAdow-XJY/click_text_field)
-<<<<<<< HEAD
 
-=======
->>>>>>> 94750d8353c8e961b9808eac1bd1594a7b84653f
 2. pub: [https://pub.dev/packages/click_text_field](https://pub.dev/packages/click_text_field)
