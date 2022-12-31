@@ -69,6 +69,7 @@ class ClickTextEditingController extends TextEditingController{
             // debugPrint('scanning match endIndex:');
             // debugPrint(endIndex.toString());
             // debugPrint(text.substring(startIndex, endIndex));
+            atIndex = endIndex;
           }
         }
         if (text.length > _scanner.position) {

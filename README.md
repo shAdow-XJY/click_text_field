@@ -1,39 +1,42 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## INTRODUCE
+A flutter TextField which is able to click the highlight text part, by setting the regex.
+Also a string callBack function can be set.
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
-
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
-
-## Usage
-
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
-```dart
-const like = 'sample';
+### USAGE
+1. use ClickTextEditingController
 ```
+    import 'package:click_text_field/click_text_field.dart';
+    
+    class _MyHomePageState extends State<MyHomePage> {
+    
+      final ClickTextEditingController textEditingController = ClickTextEditingController();
+    
+      @override
+      void initState() {
+        ······
+        textEditingController.setRegExp(RegExp(r'people'));
+        textEditingController.setOnTapEvent((strCallBack) => {
+          debugPrint('U click the highlight text $strCallBack'),
+        });
+      }
+    
+      @override
+      Widget build(BuildContext context) {
+        return 
+            ······
+            TextField(
+              controller: textEditingController,
+              maxLines: null,
+            ),
+            ······
+      }
+    }
 
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+```
+2. use ClickTextField
+```
+    wait .... 
+```
+### link
+1. source code: [github-click_text_field](https://github.com/shAdow-XJY/click_text_field)
+2. pub:
