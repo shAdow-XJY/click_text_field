@@ -1,8 +1,17 @@
 ## INTRODUCE
-A flutter TextField which is able to click the highlight text part, by setting the regex.
-Also a string callBack function can be set.
+
+ A flutter TextField which is able to click the highlight text part, by setting the regex.
+ Also a string callBack function can be set.
+
+### INSTALL
+
+```
+    dev_dependencies:
+        click_text_field: ^0.0.1
+```
 
 ### USAGE
+
 1. use ClickTextEditingController
 ```
     import 'package:click_text_field/click_text_field.dart';
@@ -38,5 +47,6 @@ Also a string callBack function can be set.
     wait .... 
 ```
 ### link
-1. source code: [github-click_text_field](https://github.com/shAdow-XJY/click_text_field)
-2. pub:
+1. source code: [https://github.com/shAdow-XJY/click_text_field](https://github.com/shAdow-XJY/click_text_field)
+
+2. pub: [https://pub.dev/packages/click_text_field](https://pub.dev/packages/click_text_field)

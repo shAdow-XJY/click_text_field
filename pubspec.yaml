@@ -1,10 +1,10 @@
 name: click_text_field
-description: A new Flutter project.
+description: A flutter TextField which is able to click the highlight text part, by setting the regex. Also a string callBack function can be set.
 version: 0.0.1
-homepage:
+homepage: https://github.com/shAdow-XJY/click_text_field
 
 environment:
-  sdk: '>=2.19.0-374.1.beta <3.0.0'
+  sdk: ">=2.16.2 <3.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
