@@ -48,7 +48,6 @@ class ClickTextEditingController extends TextEditingController{
                 TextSpan(
                   text: text.substring(atIndex, startIndex),
                   mouseCursor: SystemMouseCursors.text,
-                  recognizer: null,
                 )
             );
             spans.add(
@@ -70,25 +69,26 @@ class ClickTextEditingController extends TextEditingController{
             // debugPrint('scanning match endIndex:');
             // debugPrint(endIndex.toString());
             // debugPrint(text.substring(startIndex, endIndex));
-            atIndex = endIndex;
           }
         }
-        _scanner.position++;
+        if (text.length > _scanner.position) {
+          _scanner.position++;
+        } else {
+          break;
+        }
       }
     }
     _scanner.position = 0;
     spans.add(
         TextSpan(
-          text: text.substring(atIndex, (text.length - 1 > 0) ? text.length - 1 : 0),
+          text: text.substring(atIndex, (text.isNotEmpty) ? text.length : 0),
           mouseCursor: SystemMouseCursors.text,
-          recognizer: null,
         )
     );
     // debugPrint('build TextSpan successfully');
     return TextSpan(
       children: spans,
       mouseCursor: SystemMouseCursors.text,
-      recognizer: null,
     );
   }
 }
