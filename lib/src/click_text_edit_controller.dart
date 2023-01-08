@@ -11,9 +11,15 @@ class ClickTextEditingController extends TextEditingController{
   RegExp _regExp = RegExp(r'');
   StringScanner _scanner = StringScanner("");
   Function(String) _onTap = (String clickText){};
+  /// flag
+  bool needRefreshNow = false;
 
   void setRegExp(RegExp regExp) {
-    _regExp = regExp;
+    if (_regExp.toString().compareTo(regExp.toString()) != 0) {
+      debugPrint(regExp.toString());
+      _regExp = regExp;
+      needRefreshNow = true;
+    }
   }
 
   void setOnTapEvent(Function(String) onTap) {
@@ -27,6 +33,12 @@ class ClickTextEditingController extends TextEditingController{
   @override
   void addListener(VoidCallback listener) {
     super.addListener(listener);
+    if (needRefreshNow) {
+      WidgetsBinding.instance.addPostFrameCallback((_){
+        text = text;
+        needRefreshNow = false;
+      });
+    }
   }
 
   @override

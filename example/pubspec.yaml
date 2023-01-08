@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  click_text_field: ^0.0.1
+  click_text_field: ^0.0.2
 
 dev_dependencies:
   flutter_test:
@@ -40,10 +40,6 @@ dev_dependencies:
 #  click_text_field:
 #    path: ../
 
-# For information on the generic Dart part of this file, see the
-# following page: https://dart.dev/tools/pub/pubspec
-
-# The following section is specific to Flutter packages.
 flutter:
 
   # The following line ensures that the Material Icons font is
