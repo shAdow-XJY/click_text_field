@@ -7,7 +7,7 @@
 
 ```
     dev_dependencies:
-        click_text_field: ^0.0.1
+        click_text_field: ^last_version
 ```
 
 ### USAGE
