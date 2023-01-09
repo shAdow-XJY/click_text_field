@@ -11,14 +11,14 @@ class ClickTextEditingController extends TextEditingController{
   RegExp _regExp = RegExp(r'');
   StringScanner _scanner = StringScanner("");
   Function(String) _onTap = (String clickText){};
-  /// flag
-  bool needRefreshNow = false;
 
   void setRegExp(RegExp regExp) {
     if (_regExp.toString().compareTo(regExp.toString()) != 0) {
       debugPrint(regExp.toString());
       _regExp = regExp;
-      needRefreshNow = true;
+      /// dispatch notify to update
+      String newText = text;
+      text = newText;
     }
   }
 
@@ -33,18 +33,13 @@ class ClickTextEditingController extends TextEditingController{
   @override
   void addListener(VoidCallback listener) {
     super.addListener(listener);
-    if (needRefreshNow) {
-      WidgetsBinding.instance.addPostFrameCallback((_){
-        text = text;
-        needRefreshNow = false;
-      });
-    }
   }
 
   @override
   TextSpan buildTextSpan({required BuildContext context, TextStyle? style, required bool withComposing}) {
     // debugPrint('scanning text as follow:');
     // debugPrint(text);
+
     var atIndex = 0;
     var spans = <InlineSpan>[];
 
@@ -74,13 +69,6 @@ class ClickTextEditingController extends TextEditingController{
               ),
             );
             // debugPrint('is highlight text span!!!!');
-            // print(_regExp);
-            // debugPrint('scanning match');
-            // debugPrint('scanning match startIndex:');
-            // debugPrint(startIndex.toString());
-            // debugPrint('scanning match endIndex:');
-            // debugPrint(endIndex.toString());
-            // debugPrint(text.substring(startIndex, endIndex));
             atIndex = endIndex;
           }
         }
@@ -104,4 +92,5 @@ class ClickTextEditingController extends TextEditingController{
       mouseCursor: SystemMouseCursors.text,
     );
   }
+
 }

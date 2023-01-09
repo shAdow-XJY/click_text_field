@@ -50,9 +50,16 @@ class _MyHomePageState extends State<MyHomePage> {
           TextButton(
             child: const Text('Click reset regex'),
             onPressed: () {
+              // setState(() {
+              //   textEditingController.setRegExp(
+              //       changeRegex ?
+              //       RegExp(r'people a') : RegExp(r'people b')
+              //   );
+              //   changeRegex = !changeRegex;
+              // });
               textEditingController.setRegExp(
                   changeRegex ?
-                  RegExp(r'people a') : RegExp(r'people a')
+                  RegExp(r'people a') : RegExp(r'people b')
               );
               changeRegex = !changeRegex;
             },
