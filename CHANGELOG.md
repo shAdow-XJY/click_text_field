@@ -6,4 +6,8 @@
 
 * make Function:(setRegExp) auto refresh the textSpan.
 
+## 0.0.3
+
+* delete the wrong auto refresh, and add the ClickTextField
+
 

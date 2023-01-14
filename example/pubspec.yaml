@@ -30,15 +30,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-#  click_text_field: ^0.0.2
+  click_text_field: ^0.0.3
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
     
   flutter_lints: ^2.0.0
-  click_text_field:
-    path: ../
+#  click_text_field:
+#    path: ../
 
 flutter:
 

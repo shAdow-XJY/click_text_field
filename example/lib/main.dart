@@ -50,24 +50,27 @@ class _MyHomePageState extends State<MyHomePage> {
           TextButton(
             child: const Text('Click reset regex'),
             onPressed: () {
-              // setState(() {
-              //   textEditingController.setRegExp(
-              //       changeRegex ?
-              //       RegExp(r'people a') : RegExp(r'people b')
-              //   );
-              //   changeRegex = !changeRegex;
-              // });
-              textEditingController.setRegExp(
-                  changeRegex ?
-                  RegExp(r'people a') : RegExp(r'people b')
-              );
-              changeRegex = !changeRegex;
+              setState(() {
+                textEditingController.setRegExp(
+                    changeRegex ?
+                    RegExp(r'people a') : RegExp(r'people b')
+                );
+                changeRegex = !changeRegex;
+              });
             },
           ),
+          /// One: controller use
           TextField(
             controller: textEditingController,
             maxLines: null,
           ),
+          /// Two: field use
+          ClickTextField(
+              regExp: RegExp(r'people c'),
+              onTapText: (clickCallBack) => {
+                debugPrint('U click the highlight text $clickCallBack'),
+              }
+          )
         ]
       )
     );

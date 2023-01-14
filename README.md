@@ -44,7 +44,12 @@
 ```
 2. use ClickTextField
 ```
-    wait .... 
+    ClickTextField(
+        regExp: RegExp(r'people c'),
+        onTapText: (clickCallBack) => {
+           debugPrint('U click the highlight text $clickCallBack'),
+        }
+    )
 ```
 ### link
 1. source code: [https://github.com/shAdow-XJY/click_text_field](https://github.com/shAdow-XJY/click_text_field)

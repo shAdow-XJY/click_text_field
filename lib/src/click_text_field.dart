@@ -3,7 +3,14 @@ import 'package:flutter/material.dart';
 import '../click_text_field.dart';
 
 class ClickTextField extends StatefulWidget {
-  const ClickTextField({Key? key}) : super(key: key);
+  final RegExp regExp;
+  final Function(String) onTapText;
+  const ClickTextField(
+      {
+        Key? key,
+        required this.regExp,
+        required this.onTapText
+      }) : super(key: key);
 
 
   @override
@@ -14,15 +21,13 @@ class _ClickTextFieldState extends State<ClickTextField> {
 
   /// 章节内容输入框控制器
   final ClickTextEditingController textEditingController = ClickTextEditingController();
-  /// flag
-  bool changeRegex = false;
 
   @override
   void initState() {
     super.initState();
-    textEditingController.setRegExp(RegExp(r'people a'));
+    textEditingController.setRegExp(widget.regExp);
     textEditingController.setOnTapEvent((strCallBack) => {
-      debugPrint('U click the highlight text $strCallBack'),
+      widget.onTapText(strCallBack),
     });
   }
 
