@@ -10,4 +10,6 @@
 
 * delete the wrong auto refresh, and add the ClickTextField
 
+## 0.0.4
 
+* ClickTextField add "focusNode" and "decoration"

@@ -30,7 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  click_text_field: ^0.0.3
+  click_text_field: ^0.0.4
 
 dev_dependencies:
   flutter_test:

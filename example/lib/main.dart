@@ -66,6 +66,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           /// Two: field use
           ClickTextField(
+              controller: ClickTextEditingController(),
               regExp: RegExp(r'people c'),
               onTapText: (clickCallBack) => {
                 debugPrint('U click the highlight text $clickCallBack'),
