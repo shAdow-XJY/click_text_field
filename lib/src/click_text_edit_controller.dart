@@ -14,12 +14,13 @@ class ClickTextEditingController extends TextEditingController{
 
   void setRegExp(RegExp regExp) {
     if (_regExp.toString().compareTo(regExp.toString()) != 0) {
-      debugPrint(regExp.toString());
+      // debugPrint(regExp.toString());
       _regExp = regExp;
-      /// dispatch notify to update
-      String newText = text;
-      text = newText;
     }
+  }
+
+  RegExp getRegExp() {
+    return _regExp;
   }
 
   void setOnTapEvent(Function(String) onTap) {

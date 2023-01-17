@@ -13,3 +13,7 @@
 ## 0.0.4
 
 * ClickTextField add "focusNode" and "decoration"
+
+## 0.0.5
+
+* ClickTextField refresh while regexp change.

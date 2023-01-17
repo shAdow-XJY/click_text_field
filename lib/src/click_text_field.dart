@@ -24,10 +24,13 @@ class ClickTextField extends StatefulWidget {
 }
 
 class _ClickTextFieldState extends State<ClickTextField> {
-  
+
+  RegExp preRegExp = RegExp(r'');
+
   @override
   void initState() {
     super.initState();
+    preRegExp = widget.regExp;
     widget.controller.setRegExp(widget.regExp);
     widget.controller.setOnTapEvent((strCallBack) => {
       widget.onTapText(strCallBack),
@@ -36,6 +39,12 @@ class _ClickTextFieldState extends State<ClickTextField> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.regExp.toString().compareTo(preRegExp.toString()) != 0) {
+      setState(() {
+        widget.controller.setRegExp(widget.regExp);
+      });
+      preRegExp = widget.regExp;
+    }
     return TextField(
       maxLines: null,
       controller: widget.controller,
