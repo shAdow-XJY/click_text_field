@@ -45,6 +45,7 @@
 2. use ClickTextField
 ```
     ClickTextField(
+        controller: ClickTextEditingController(),
         regExp: RegExp(r'people c'),
         onTapText: (clickCallBack) => {
            debugPrint('U click the highlight text $clickCallBack'),
