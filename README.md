@@ -52,6 +52,19 @@
         }
     )
 ```
+### Warning
+When running in Mobile, it maybe reports a error:
+```
+ rendering/editable.dart': Failed assertion: line 1336 pos 14: 'readOnly && !obscureText': is not true.
+```
+I don't have some good idea, I choose to delete the check code to avoid.
+```
+if (_semanticsInfo!.any((InlineSpanSemanticsInformation info) => info.recognizer != null) &&
+defaultTargetPlatform != TargetPlatform.macOS) {
+// the next code to delete
+// assert(readOnly && !obscureText);
+```
+
 ### link
 1. source code: [https://github.com/shAdow-XJY/click_text_field](https://github.com/shAdow-XJY/click_text_field)
 
