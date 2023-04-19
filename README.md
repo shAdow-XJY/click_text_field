@@ -1,5 +1,5 @@
 ## INTRODUCE
- [example]()
+ ![example](https://github.com/shAdow-XJY/click_text_field/blob/master/asset/example.png)
  A flutter TextField which is able to click the highlight text part, by setting the regex.
  Also a string callBack function can be set.
 
