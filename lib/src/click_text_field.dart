@@ -6,6 +6,7 @@ class ClickTextField extends StatefulWidget {
   final RegExp regExp;
   final Function(String) onTapText;
   final ClickTextEditingController controller;
+  final TextStyle? clickTextStyle;
   final FocusNode? focusNode;
   final InputDecoration? decoration;
   final bool? enable;
@@ -17,6 +18,7 @@ class ClickTextField extends StatefulWidget {
         required this.regExp,
         required this.onTapText,
         required this.controller,
+        this.clickTextStyle,
         this.focusNode,
         this.decoration,
         this.enable,
@@ -35,6 +37,9 @@ class _ClickTextFieldState extends State<ClickTextField> {
   @override
   void initState() {
     super.initState();
+    if (widget.clickTextStyle != null) {
+      widget.controller.setClickTextStyle(widget.clickTextStyle!);
+    }
     widget.controller.setRegExp(widget.regExp);
     widget.controller.setOnTapEvent((strCallBack) => {
       widget.onTapText(strCallBack),

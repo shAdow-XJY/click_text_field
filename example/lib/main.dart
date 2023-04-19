@@ -45,6 +45,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ClickTextField(
               controller: ClickTextEditingController(),
               regExp: RegExp(r'people a'),
+              clickTextStyle: TextStyle(
+                background: Paint()
+                  ..style = PaintingStyle.stroke
+                  ..strokeWidth = 2
+                  ..color = Colors.cyanAccent,
+              ),
               onTapText: (clickCallBack) => {
                 debugPrint('U click the highlight text $clickCallBack'),
               }

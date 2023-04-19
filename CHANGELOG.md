@@ -21,3 +21,7 @@
 ## 0.0.6
 
 * ClickTextField refresh regex function with didUpdateWidget, add some key to ClickTextField.
+
+## 0.0.7
+
+* fix two same and closed string scan bug, add custom ClickTextStyle function.
