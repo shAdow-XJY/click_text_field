@@ -8,6 +8,9 @@ class ClickTextField extends StatefulWidget {
   final ClickTextEditingController controller;
   final FocusNode? focusNode;
   final InputDecoration? decoration;
+  final bool? enable;
+  final void Function(String)? onChanged;
+  final TextAlign? textAlign;
   const ClickTextField(
       {
         Key? key,
@@ -16,6 +19,9 @@ class ClickTextField extends StatefulWidget {
         required this.controller,
         this.focusNode,
         this.decoration,
+        this.enable,
+        this.onChanged,
+        this.textAlign
       }) : super(key: key);
 
 
@@ -25,12 +31,10 @@ class ClickTextField extends StatefulWidget {
 
 class _ClickTextFieldState extends State<ClickTextField> {
 
-  RegExp preRegExp = RegExp(r'');
 
   @override
   void initState() {
     super.initState();
-    preRegExp = widget.regExp;
     widget.controller.setRegExp(widget.regExp);
     widget.controller.setOnTapEvent((strCallBack) => {
       widget.onTapText(strCallBack),
@@ -38,18 +42,23 @@ class _ClickTextFieldState extends State<ClickTextField> {
   }
 
   @override
-  Widget build(BuildContext context) {
-    if (widget.regExp.toString().compareTo(preRegExp.toString()) != 0) {
-      setState(() {
-        widget.controller.setRegExp(widget.regExp);
-      });
-      preRegExp = widget.regExp;
+  void didUpdateWidget(ClickTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.regExp.toString().compareTo(oldWidget.regExp.toString()) != 0) {
+      widget.controller.setRegExp(widget.regExp);
     }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return TextField(
       maxLines: null,
       controller: widget.controller,
       focusNode: widget.focusNode ?? FocusNode(),
       decoration: widget.decoration ?? const InputDecoration(),
+      enabled: widget.enable,
+      onChanged: widget.onChanged,
+      textAlign: widget.textAlign ?? TextAlign.start,
     );
   }
 }

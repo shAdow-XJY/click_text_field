@@ -11,38 +11,7 @@
 ```
 
 ### USAGE
-
-1. use ClickTextEditingController
-```
-    import 'package:click_text_field/click_text_field.dart';
-    
-    class _MyHomePageState extends State<MyHomePage> {
-    
-      final ClickTextEditingController textEditingController = ClickTextEditingController();
-    
-      @override
-      void initState() {
-        ······
-        textEditingController.setRegExp(RegExp(r'people'));
-        textEditingController.setOnTapEvent((strCallBack) => {
-          debugPrint('U click the highlight text $strCallBack'),
-        });
-      }
-    
-      @override
-      Widget build(BuildContext context) {
-        return 
-            ······
-            TextField(
-              controller: textEditingController,
-              maxLines: null,
-            ),
-            ······
-      }
-    }
-
-```
-2. use ClickTextField
+use ClickTextField
 ```
     ClickTextField(
         controller: ClickTextEditingController(),

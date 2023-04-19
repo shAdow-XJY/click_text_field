@@ -17,3 +17,7 @@
 ## 0.0.5
 
 * ClickTextField refresh while regexp change.
+
+## 0.0.6
+
+* ClickTextField refresh regex function with didUpdateWidget, add some key to ClickTextField.

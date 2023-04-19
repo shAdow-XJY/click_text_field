@@ -31,10 +31,6 @@ class ClickTextEditingController extends TextEditingController{
     _onTap(clickText);
   }
 
-  @override
-  void addListener(VoidCallback listener) {
-    super.addListener(listener);
-  }
 
   @override
   TextSpan buildTextSpan({required BuildContext context, TextStyle? style, required bool withComposing}) {
@@ -63,11 +59,7 @@ class ClickTextEditingController extends TextEditingController{
                   text: text.substring(startIndex, endIndex),
                   style: clickTextStyle,
                   mouseCursor: SystemMouseCursors.click,
-                  recognizer: TapGestureRecognizer()..onTap = ()=> {
-                    // debugPrint(text.substring(startIndex, endIndex)),
-                    runOnTapEvent(text.substring(startIndex, endIndex)),
-                  }
-              ),
+                  recognizer: TapGestureRecognizer()..onTap = ()=> runOnTapEvent(text.substring(startIndex, endIndex)),),
             );
             // debugPrint('is highlight text span!!!!');
             atIndex = endIndex;
@@ -84,6 +76,12 @@ class ClickTextEditingController extends TextEditingController{
     spans.add(
         TextSpan(
           text: text.substring(atIndex, (text.isNotEmpty) ? text.length : 0),
+          mouseCursor: SystemMouseCursors.text,
+        )
+    );
+    spans.add(
+        const TextSpan(
+          text: ' ',
           mouseCursor: SystemMouseCursors.text,
         )
     );
