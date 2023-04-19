@@ -25,3 +25,7 @@
 ## 0.0.7
 
 * fix two same and closed string scan bug, add custom ClickTextStyle function.
+
+## 0.0.7+1
+
+* README.md and add result picture link.
