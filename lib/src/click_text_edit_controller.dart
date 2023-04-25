@@ -77,6 +77,8 @@ class ClickTextEditingController extends TextEditingController {
             // debugPrint('is highlight text span!!!!');
             atIndex = endIndex;
             _scanner.position = atIndex;
+          } else {
+            _scanner.position++;
           }
         } else if (text.length > _scanner.position) {
           _scanner.position++;

@@ -29,3 +29,7 @@
 ## 0.0.7+1
 
 * README.md and add result picture link.
+
+## 0.0.7+2
+
+* fix bug in ClickTextController.

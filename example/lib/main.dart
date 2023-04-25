@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
-  /// 章节内容输入框控制器
+  /// ClickTextEditingController
   final ClickTextEditingController textEditingController = ClickTextEditingController();
 
   @override
@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         children: [
           ClickTextField(
-              controller: ClickTextEditingController(),
+              controller: textEditingController,
               regExp: RegExp(r'people a'),
               clickTextStyle: TextStyle(
                 background: Paint()
