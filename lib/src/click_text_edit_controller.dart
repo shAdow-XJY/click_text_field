@@ -2,7 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
 
-TextStyle clickTextStyle = TextStyle(
+TextStyle defaultTextStyle = TextStyle(
   textBaseline: TextBaseline.alphabetic,
   background: Paint()
     ..style = PaintingStyle.stroke
@@ -11,32 +11,17 @@ TextStyle clickTextStyle = TextStyle(
 );
 
 class ClickTextEditingController extends TextEditingController {
-  RegExp _regExp = RegExp(r'');
+  RegExp regExp = RegExp(r'');
   StringScanner _scanner = StringScanner("");
   Function(String) _onTap = (String clickText) {};
-  TextStyle _clickTextStyle = clickTextStyle;
+  TextStyle _clickTextStyle = defaultTextStyle;
 
-  void setRegExp(RegExp regExp) {
-    if (_regExp.toString().compareTo(regExp.toString()) != 0) {
-      // debugPrint(regExp.toString());
-      _regExp = regExp;
-    }
-  }
-
-  RegExp getRegExp() {
-    return _regExp;
-  }
-
-  void setClickTextStyle(TextStyle textStyle) {
-    _clickTextStyle = textStyle;
-  }
-
-  void setOnTapEvent(Function(String) onTap) {
+  set onTap(Function(String) onTap) {
     _onTap = onTap;
   }
 
-  void runOnTapEvent(String clickText) {
-    _onTap(clickText);
+  set clickTextStyle(TextStyle clickTextStyle) {
+    _clickTextStyle = clickTextStyle;
   }
 
   @override
@@ -48,11 +33,11 @@ class ClickTextEditingController extends TextEditingController {
     var spans = <InlineSpan>[];
 
     _scanner = StringScanner(text);
-    if (_regExp.pattern.isNotEmpty) {
+    if (regExp.pattern.isNotEmpty) {
       while (!_scanner.isDone) {
         // debugPrint('scanning');
         // print('position: ${_scanner.position}');
-        if (_scanner.scan(_regExp)) {
+        if (_scanner.scan(regExp)) {
           int startIndex = _scanner.lastMatch?.start ?? 0;
           int endIndex = _scanner.lastMatch?.end ?? 0;
           // print('startIndex: ${startIndex}');
@@ -70,7 +55,7 @@ class ClickTextEditingController extends TextEditingController {
                   mouseCursor: SystemMouseCursors.click,
                   recognizer: TapGestureRecognizer()
                     ..onTap = () =>
-                        runOnTapEvent(text.substring(startIndex, endIndex)),
+                        _onTap(text.substring(startIndex, endIndex)),
                 ),
               ]),
             );

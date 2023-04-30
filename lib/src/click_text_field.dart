@@ -33,24 +33,23 @@ class ClickTextField extends StatefulWidget {
 
 class _ClickTextFieldState extends State<ClickTextField> {
 
-
   @override
   void initState() {
     super.initState();
     if (widget.clickTextStyle != null) {
-      widget.controller.setClickTextStyle(widget.clickTextStyle!);
+      widget.controller.clickTextStyle = widget.clickTextStyle!;
     }
-    widget.controller.setRegExp(widget.regExp);
-    widget.controller.setOnTapEvent((strCallBack) => {
+    widget.controller.regExp = widget.regExp;
+    widget.controller.onTap = (strCallBack) => {
       widget.onTapText(strCallBack),
-    });
+    };
   }
 
   @override
   void didUpdateWidget(ClickTextField oldWidget) {
     super.didUpdateWidget(oldWidget);
     if (widget.regExp.toString().compareTo(oldWidget.regExp.toString()) != 0) {
-      widget.controller.setRegExp(widget.regExp);
+      widget.controller.regExp = widget.regExp;
     }
   }
 

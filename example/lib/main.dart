@@ -10,9 +10,12 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     return const MaterialApp(
+     return MaterialApp(
       title: 'click_text_field',
-      home: MyHomePage(),
+      theme: ThemeData(
+        brightness: Brightness.dark
+      ),
+      home: const MyHomePage(),
     );
   }
 }
@@ -38,8 +41,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text('click_text_field'),
+      ),
       body: Column(
         children: [
           ClickTextField(
@@ -54,6 +58,11 @@ class _MyHomePageState extends State<MyHomePage> {
               onTapText: (clickCallBack) => {
                 debugPrint('U click the highlight text $clickCallBack'),
               }
+          ),
+          SuggestClickTextField(
+            controller: ClickTextEditingController(),
+            regExp: RegExp(r'people a|people b|people c|people d|doctor b|building c'),
+            onTapText: (clickCallBack ) {  },
           )
         ]
       )
