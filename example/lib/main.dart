@@ -48,7 +48,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           ClickTextField(
               controller: textEditingController,
-              regExp: RegExp(r'people a'),
+              regExp: RegExp(r'people a|people b|people c'),
               clickTextStyle: TextStyle(
                 background: Paint()
                   ..style = PaintingStyle.stroke
@@ -59,11 +59,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 debugPrint('U click the highlight text $clickCallBack'),
               }
           ),
-          SuggestClickTextField(
-            controller: ClickTextEditingController(),
-            regExp: RegExp(r'people a|people b|people c|people d|doctor b|building c'),
-            onTapText: (clickCallBack ) {  },
-          )
         ]
       )
     );

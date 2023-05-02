@@ -33,3 +33,7 @@
 ## 0.0.7+2
 
 * fix bug in ClickTextController.
+
+## 0.0.7+3
+
+* ClickTextField refresh clickTextStyle with didUpdateWidget.

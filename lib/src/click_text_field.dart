@@ -51,6 +51,9 @@ class _ClickTextFieldState extends State<ClickTextField> {
     if (widget.regExp.toString().compareTo(oldWidget.regExp.toString()) != 0) {
       widget.controller.regExp = widget.regExp;
     }
+    if (widget.clickTextStyle != null && widget.clickTextStyle != oldWidget.clickTextStyle) {
+      widget.controller.clickTextStyle = widget.clickTextStyle!;
+    }
   }
 
   @override
