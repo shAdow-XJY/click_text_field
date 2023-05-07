@@ -6,24 +6,30 @@ class ClickTextField extends StatefulWidget {
   final RegExp regExp;
   final Function(String) onTapText;
   final ClickTextEditingController controller;
+  final TextStyle? textStyle;
   final TextStyle? clickTextStyle;
   final FocusNode? focusNode;
   final InputDecoration? decoration;
   final bool? enable;
   final void Function(String)? onChanged;
   final TextAlign? textAlign;
+  final void Function()? onTap;
+  final void Function(PointerDownEvent)? onTapOutside;
   const ClickTextField(
       {
         Key? key,
         required this.regExp,
         required this.onTapText,
         required this.controller,
-        this.clickTextStyle,
+        this.enable,
+        this.textStyle,
+        this.textAlign,
         this.focusNode,
         this.decoration,
-        this.enable,
+        this.clickTextStyle,
+        this.onTap,
         this.onChanged,
-        this.textAlign
+        this.onTapOutside,
       }) : super(key: key);
 
 
@@ -36,6 +42,9 @@ class _ClickTextFieldState extends State<ClickTextField> {
   @override
   void initState() {
     super.initState();
+    if (widget.textStyle != null) {
+      widget.controller.textStyle = widget.textStyle!;
+    }
     if (widget.clickTextStyle != null) {
       widget.controller.clickTextStyle = widget.clickTextStyle!;
     }
@@ -51,6 +60,9 @@ class _ClickTextFieldState extends State<ClickTextField> {
     if (widget.regExp.toString().compareTo(oldWidget.regExp.toString()) != 0) {
       widget.controller.regExp = widget.regExp;
     }
+    if (widget.textStyle != null && widget.textStyle != oldWidget.textStyle) {
+      widget.controller.textStyle = widget.textStyle!;
+    }
     if (widget.clickTextStyle != null && widget.clickTextStyle != oldWidget.clickTextStyle) {
       widget.controller.clickTextStyle = widget.clickTextStyle!;
     }
@@ -60,12 +72,14 @@ class _ClickTextFieldState extends State<ClickTextField> {
   Widget build(BuildContext context) {
     return TextField(
       maxLines: null,
+      enabled: widget.enable,
       controller: widget.controller,
       focusNode: widget.focusNode ?? FocusNode(),
-      decoration: widget.decoration ?? const InputDecoration(),
-      enabled: widget.enable,
-      onChanged: widget.onChanged,
       textAlign: widget.textAlign ?? TextAlign.start,
+      decoration: widget.decoration ?? const InputDecoration(),
+      onChanged: widget.onChanged,
+      onTap: widget.onTap,
+      onTapOutside: widget.onTapOutside,
     );
   }
 }

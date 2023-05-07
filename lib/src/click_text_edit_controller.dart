@@ -2,7 +2,14 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
 
-TextStyle defaultTextStyle = TextStyle(
+TextStyle defaultTextStyle = const TextStyle(
+  height: 1.2,
+  fontSize: 14.0,
+);
+
+TextStyle defaultClickTextStyle = TextStyle(
+  height: 1.2,
+  fontSize: 14.0,
   textBaseline: TextBaseline.alphabetic,
   background: Paint()
     ..style = PaintingStyle.stroke
@@ -14,10 +21,15 @@ class ClickTextEditingController extends TextEditingController {
   RegExp regExp = RegExp(r'');
   StringScanner _scanner = StringScanner("");
   Function(String) _onTap = (String clickText) {};
-  TextStyle _clickTextStyle = defaultTextStyle;
+  TextStyle _textStyle = defaultTextStyle;
+  TextStyle _clickTextStyle = defaultClickTextStyle;
 
   set onTap(Function(String) onTap) {
     _onTap = onTap;
+  }
+
+  set textStyle(TextStyle textStyle) {
+    _textStyle = textStyle;
   }
 
   set clickTextStyle(TextStyle clickTextStyle) {
@@ -45,10 +57,10 @@ class ClickTextEditingController extends TextEditingController {
           if (startIndex < endIndex) {
             spans.add(TextSpan(
               text: text.substring(atIndex, startIndex),
+              style: _textStyle,
               mouseCursor: SystemMouseCursors.text,
             ));
             spans.add(
-              TextSpan(children: [
                 TextSpan(
                   text: text.substring(startIndex, endIndex),
                   style: _clickTextStyle,
@@ -57,7 +69,6 @@ class ClickTextEditingController extends TextEditingController {
                     ..onTap = () =>
                         _onTap(text.substring(startIndex, endIndex)),
                 ),
-              ]),
             );
             // debugPrint('is highlight text span!!!!');
             atIndex = endIndex;
@@ -75,6 +86,7 @@ class ClickTextEditingController extends TextEditingController {
     _scanner.position = 0;
     spans.add(TextSpan(
       text: text.substring(atIndex, (text.isNotEmpty) ? text.length : 0),
+      style: _textStyle,
       mouseCursor: SystemMouseCursors.text,
     ));
     spans.add(const TextSpan(

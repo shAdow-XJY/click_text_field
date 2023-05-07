@@ -4,7 +4,7 @@
  * set the regex
  * set the textStyle
  * set a string callBack function
-
+ * suggestClickTextField (!!!Beta)
 ### INSTALL
 
 ```
@@ -13,7 +13,7 @@
 ```
 
 ### USAGE
-use ClickTextField
+##### use ClickTextField
 ```
     ClickTextField(
         controller: ClickTextEditingController(),
@@ -29,9 +29,27 @@ use ClickTextField
         }
     )
 ```
+##### use suggestClickTextField (!!Beta)
+```
+    SuggestClickTextField(
+      controller: ClickTextEditingController(),
+      regExp: RegExp(r'people a|people b|people c|embed c|building d|人物一'),
+      textStyle: const TextStyle(
+        color: Colors.deepPurple
+      ),
+      clickTextStyle: TextStyle(
+        background: Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 2
+          ..color = Colors.cyanAccent,
+      ),
+      onTapText: (clickCallBack) => {
+        debugPrint('U click the highlight text $clickCallBack'),
+      }
+    ),
+```
+### Constructor Function
 
-### Mobile Warning
-Constructor Function
 ```
 const ClickTextField({
       Key? key,
@@ -46,6 +64,7 @@ const ClickTextField({
       this.textAlign
  }) : super(key: key);
 ```
+
 
 ### Mobile Warning
 When running in Mobile, it maybe reports a error:

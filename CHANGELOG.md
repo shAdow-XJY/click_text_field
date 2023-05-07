@@ -37,3 +37,7 @@
 ## 0.0.7+3
 
 * ClickTextField refresh clickTextStyle with didUpdateWidget.
+
+## 0.0.8
+
+* ClickTextField add keys, add beta version: SuggestClickTextField.
