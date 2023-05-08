@@ -41,3 +41,7 @@
 ## 0.0.8
 
 * ClickTextField add keys, add beta version: SuggestClickTextField.
+
+## 0.0.8+1
+
+* SuggestClickTextField focusNode cancel focus while tapOutside.

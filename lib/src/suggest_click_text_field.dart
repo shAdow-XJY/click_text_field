@@ -231,6 +231,7 @@ class _SuggestClickTextFieldState extends State<SuggestClickTextField> {
                     }
                   },
                   onTapOutside: (PointerDownEvent e) {
+                    focusNode.unfocus();
                     tapOutside(e.position);
                   },
                 ),
