@@ -58,7 +58,6 @@ class ClickTextEditingController extends TextEditingController {
             spans.add(TextSpan(
               text: text.substring(atIndex, startIndex),
               style: _textStyle,
-              mouseCursor: SystemMouseCursors.text,
             ));
             spans.add(
                 TextSpan(
@@ -85,13 +84,8 @@ class ClickTextEditingController extends TextEditingController {
     }
     _scanner.position = 0;
     spans.add(TextSpan(
-      text: text.substring(atIndex, (text.isNotEmpty) ? text.length : 0),
+      text: '${text.substring(atIndex, (text.isNotEmpty) ? text.length : 0)}\u00A0',
       style: _textStyle,
-      mouseCursor: SystemMouseCursors.text,
-    ));
-    spans.add(const TextSpan(
-      text: ' ',
-      mouseCursor: SystemMouseCursors.text,
     ));
     // debugPrint('build TextSpan successfully');
     return TextSpan(

@@ -45,3 +45,7 @@
 ## 0.0.8+1
 
 * SuggestClickTextField focusNode cancel focus while tapOutside.
+
+## 0.0.8+2
+
+* fix space input show bug.

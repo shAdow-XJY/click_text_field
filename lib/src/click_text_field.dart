@@ -39,9 +39,16 @@ class ClickTextField extends StatefulWidget {
 
 class _ClickTextFieldState extends State<ClickTextField> {
 
+  late FocusNode focusNode;
+  late TextAlign textAlign;
+  InputDecoration? decoration;
+
   @override
   void initState() {
     super.initState();
+    focusNode = widget.focusNode??FocusNode();
+    textAlign = widget.textAlign ?? TextAlign.start;
+    decoration = widget.decoration;
     if (widget.textStyle != null) {
       widget.controller.textStyle = widget.textStyle!;
     }
@@ -74,9 +81,9 @@ class _ClickTextFieldState extends State<ClickTextField> {
       maxLines: null,
       enabled: widget.enable,
       controller: widget.controller,
-      focusNode: widget.focusNode ?? FocusNode(),
-      textAlign: widget.textAlign ?? TextAlign.start,
-      decoration: widget.decoration ?? const InputDecoration(),
+      focusNode: focusNode,
+      textAlign: textAlign,
+      decoration: decoration,
       onChanged: widget.onChanged,
       onTap: widget.onTap,
       onTapOutside: widget.onTapOutside,
