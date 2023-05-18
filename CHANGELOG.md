@@ -49,3 +49,7 @@
 ## 0.0.8+2
 
 * fix space input show bug.
+
+## 0.0.8+3
+
+* SuggestClickTextField's dawg refresh while regexp update.

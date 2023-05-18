@@ -87,13 +87,19 @@ class DAWG {
     }
   }
 
+  void clear() {
+    _id = 0;
+    _root.children.clear();
+    _finalNodes.clear();
+  }
+
   void printDAWG() {
     var seen = <DAWGNode>{};
     var queue = Queue<DAWGNode>.from([_root]);
     while (queue.isNotEmpty) {
       var node = queue.removeFirst();
       seen.add(node);
-      // printnode);
+      // print(node);
 
       for (var child in node.children.values) {
         if (!seen.contains(child)) {

@@ -60,6 +60,17 @@ class _SuggestClickTextFieldState extends State<SuggestClickTextField> {
     });
   }
 
+  @override
+  void didUpdateWidget(SuggestClickTextField oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.regExp.toString().compareTo(oldWidget.regExp.toString()) != 0) {
+      _dawg.clear();
+      widget.regExp.pattern.split('|').forEach((element) {
+        _dawg.addString(element);
+      });
+    }
+  }
+
   void updateMaxWidth() {
     final RenderBox? box = _fieldKey.currentContext?.findRenderObject() as RenderBox?;
     if (box != null) {
