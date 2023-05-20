@@ -66,8 +66,8 @@ const ClickTextField({
 ```
 
 
-### Mobile Warning
-When running in Mobile, it maybe reports a error:
+### Harmony OS Warning
+When running in Harmony OS, it maybe reports a error:
 ```
  rendering/editable.dart': Failed assertion: line 1336 pos 14: 'readOnly && !obscureText': is not true.
 ```
