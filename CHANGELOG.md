@@ -53,3 +53,7 @@
 ## 0.0.8+3
 
 * SuggestClickTextField's dawg refresh while regexp update.
+
+## 0.0.9
+
+* change remind harmony os instead of android mobile.
