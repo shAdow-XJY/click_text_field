@@ -41,14 +41,14 @@ class _ClickTextFieldState extends State<ClickTextField> {
 
   late FocusNode focusNode;
   late TextAlign textAlign;
-  InputDecoration? decoration;
+  late InputDecoration decoration;
 
   @override
   void initState() {
     super.initState();
     focusNode = widget.focusNode??FocusNode();
     textAlign = widget.textAlign ?? TextAlign.start;
-    decoration = widget.decoration;
+    decoration = widget.decoration??const InputDecoration();
     if (widget.textStyle != null) {
       widget.controller.textStyle = widget.textStyle!;
     }
