@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../click_text_field.dart';
+import 'click_text_edit_controller.dart';
+
 
 class ClickTextField extends StatefulWidget {
   final RegExp regExp;

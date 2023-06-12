@@ -60,22 +60,22 @@ class _MyHomePageState extends State<MyHomePage> {
                   debugPrint('U click the highlight text $clickCallBack'),
                 }
             ),
-            SuggestClickTextField(
-                controller: ClickTextEditingController(),
-                regExp: RegExp(r'people a|people b|people c|embed c|building d|人物一'),
-                textStyle: const TextStyle(
-                  color: Colors.deepPurple
-                ),
-                clickTextStyle: TextStyle(
-                  background: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 2
-                    ..color = Colors.cyanAccent,
-                ),
-                onTapText: (clickCallBack) => {
-                  debugPrint('U click the highlight text $clickCallBack'),
-                }
-            ),
+            // SuggestClickTextField(
+            //     controller: ClickTextEditingController(),
+            //     regExp: RegExp(r'people a|people b|people c|embed c|building d|人物一'),
+            //     textStyle: const TextStyle(
+            //       color: Colors.deepPurple
+            //     ),
+            //     clickTextStyle: TextStyle(
+            //       background: Paint()
+            //         ..style = PaintingStyle.stroke
+            //         ..strokeWidth = 2
+            //         ..color = Colors.cyanAccent,
+            //     ),
+            //     onTapText: (clickCallBack) => {
+            //       debugPrint('U click the highlight text $clickCallBack'),
+            //     }
+            // ),
           ],
         ),
       ),
