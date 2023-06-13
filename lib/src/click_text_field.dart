@@ -78,16 +78,21 @@ class _ClickTextFieldState extends State<ClickTextField> {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
-      maxLines: null,
-      enabled: widget.enable,
-      controller: widget.controller,
-      focusNode: focusNode,
-      textAlign: textAlign,
-      decoration: decoration,
-      onChanged: widget.onChanged,
-      onTap: widget.onTap,
-      onTapOutside: widget.onTapOutside,
+    return GestureDetector(
+      onTapUp: (details) {
+
+      },
+      child: TextField(
+        maxLines: null,
+        enabled: widget.enable,
+        controller: widget.controller,
+        focusNode: focusNode,
+        textAlign: textAlign,
+        decoration: decoration,
+        onChanged: widget.onChanged,
+        onTap: widget.onTap,
+        onTapOutside: widget.onTapOutside,
+      ),
     );
   }
 }
