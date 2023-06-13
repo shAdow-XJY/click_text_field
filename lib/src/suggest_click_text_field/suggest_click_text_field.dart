@@ -1,7 +1,7 @@
-import 'package:click_text_field/src/regexp_dawg.dart';
+import 'package:click_text_field/src/service/regexp_dawg.dart';
 import 'package:flutter/material.dart';
-import 'click_text_edit_controller.dart';
-import 'click_text_field.dart';
+import '../click_text_field/click_text_edit_controller.dart';
+import '../click_text_field/click_text_field.dart';
 
 
 class SuggestClickTextField extends StatefulWidget {
