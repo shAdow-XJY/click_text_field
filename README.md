@@ -5,6 +5,9 @@
  * set the textStyle
  * set a string callBack function
  * suggestClickTextField (!!!Beta)
+
+---
+
 ### INSTALL
 
 ```
@@ -48,30 +51,13 @@
       }
     ),
 ```
-### Constructor Function
 
-```
-const ClickTextField({
-      Key? key,
-      required this.regExp,
-      required this.onTapText,
-      required this.controller,
-      this.clickTextStyle,
-      this.focusNode,
-      this.decoration,
-      this.enable,
-      this.onChanged,
-      this.textAlign
- }) : super(key: key);
-```
-
-
-### Harmony OS Warning
-When running in Harmony OS, it maybe reports a error:
+### Warning
+When running in different SDK version, it maybe reports a error:
 ```
  rendering/editable.dart': Failed assertion: line 1336 pos 14: 'readOnly && !obscureText': is not true.
 ```
-I don't have some good idea now, I choose to delete the check code to avoid.
+delete the check code or change use new SDK version to avoid.
 ```
 if (_semanticsInfo!.any((InlineSpanSemanticsInformation info) => info.recognizer != null) &&
 defaultTargetPlatform != TargetPlatform.macOS) {

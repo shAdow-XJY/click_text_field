@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:click_text_field/click_text_field.dart';
-import 'package:click_text_field/click_text_editor.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
 
   /// ClickTextEditingController
-  // final ClickTextEditingController textEditingController = ClickTextEditingController();
+  final ClickTextEditingController textEditingController = ClickTextEditingController();
 
   @override
   void initState() {
@@ -48,20 +47,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ClickTextEditor(),
-            // ClickTextField(
-            //     controller: textEditingController,
-            //     regExp: RegExp(r'people a|people b|people c'),
-            //     clickTextStyle: TextStyle(
-            //       background: Paint()
-            //         ..style = PaintingStyle.stroke
-            //         ..strokeWidth = 2
-            //         ..color = Colors.cyanAccent,
-            //     ),
-            //     onTapText: (clickCallBack) => {
-            //       debugPrint('U click the highlight text $clickCallBack'),
-            //     }
-            // ),
+            // ClickTextEditor(),
+            ClickTextField(
+                controller: textEditingController,
+                regExp: RegExp(r'people a|people b|people c'),
+                clickTextStyle: TextStyle(
+                  background: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 2
+                    ..color = Colors.cyanAccent,
+                ),
+                onTapText: (clickCallBack) => {
+                  debugPrint('U click the highlight text $clickCallBack'),
+                }
+            ),
             // SuggestClickTextField(
             //     controller: ClickTextEditingController(),
             //     regExp: RegExp(r'people a|people b|people c|embed c|building d|人物一'),

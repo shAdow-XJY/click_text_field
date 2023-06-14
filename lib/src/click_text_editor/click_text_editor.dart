@@ -24,7 +24,7 @@ class _ClickTextEditorState extends State<ClickTextEditor> {
   void initState() {
     super.initState();
     _clickTextEditorController.regExp = RegExp('people a');
-    _clickTextEditorController.onTap = (String a)=> print('a');
+    _clickTextEditorController.onTap = (String a) => debugPrint('a');
     _clickTextEditorController.addListener(() {
       setState(() {
         WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -49,19 +49,6 @@ class _ClickTextEditorState extends State<ClickTextEditor> {
               maxLines: null,
             ),
           ),
-          // RichText
-          // Padding(
-          //   padding: const EdgeInsets.all(16.0),
-          //   child: ValueListenableBuilder<TextSpan>(
-          //     valueListenable: _clickTextEditorController.clickTextSpanNotifier,
-          //     builder: (context, clickTextSpan, child) {
-          //       return RichText(
-          //         maxLines: null,
-          //         text: clickTextSpan,
-          //       );
-          //     },
-          //   ),
-          // ),
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: RichText(

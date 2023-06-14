@@ -57,3 +57,7 @@
 ## 0.0.9
 
 * change remind harmony os instead of android mobile.
+
+## 0.0.10
+
+* Read Info change: add advice about bug.
